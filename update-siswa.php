@@ -1,8 +1,7 @@
 <?php
-
 //include koneksi database
 include('config.php');
-
+$db = new Database();
 //get data dari form
 $id_siswa     = $_POST['id_siswa'];
 $nisn         = $_POST['nisn'];
@@ -10,14 +9,8 @@ $nama_lengkap = $_POST['nama_lengkap'];
 $alamat       = $_POST['alamat'];
 
 //query update data ke dalam database berdasarkan ID
-$query = "UPDATE tbl_siswa SET nisn = '$nisn', nama_lengkap = '$nama_lengkap', alamat = '$alamat' WHERE id_siswa = '$id_siswa'";
 
-//kondisi pengecekan apakah data berhasil diupdate atau tidak
-if($connection->query($query)) {
-    //redirect ke halaman index.php 
-    header("location: index.php");
-} else {
-    //pesan error gagal update data
-    echo "Data Gagal Diupate!";
-}
+$db->update($id_siswa, $nisn, $nama_lengkap,$alamat);
+header('Location: index.php');
+
 

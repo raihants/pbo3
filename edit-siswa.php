@@ -1,15 +1,8 @@
 <?php 
-  
   include('config.php');
   
-  $id = $_GET['id'];
-  
-  $query = "SELECT * FROM tbl_siswa WHERE id_siswa = $id LIMIT 1";
-
-  $result = mysqli_query($connection, $query);
-
-  $row = mysqli_fetch_array($result);
-
+  $db = new Database();
+  $row = $db->getByID($_GET['id']);
   ?>
 
 <!doctype html>

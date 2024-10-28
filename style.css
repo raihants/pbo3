@@ -1,0 +1,94 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Biru muda sebagai latar belakang halaman */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+/* Style untuk pesan koneksi berhasil */
+.connection-status {
+    background-color: #e0e0e0; /* Abu-abu sebagai latar belakang */
+    color: #28a745; /* Hijau untuk teks */
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000; /* Memastikan tampil di atas elemen lainnya */
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 30px; /* Kurangi jarak margin atas untuk menggeser lebih ke atas */
+}
+
+.card {
+    background-color: #ffffff; /* Putih sebagai warna dasar kartu */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #003366; /* Biru tua sebagai header */
+    color: rgb(0, 0, 0);
+    padding: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-body {
+    padding: 24px;
+}
+
+.btn-success {
+    background-color: #00509e; /* Biru tua sebagai warna tombol simpan */
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #003366;
+}
+
+/* Table styling */
+.table thead th {
+    background-color: #003366; /* Biru tua untuk header tabel */
+    color: white;
+    text-align: center;
+}
+
+.table tbody td {
+    text-align: center;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .card-body {
+        padding: 16px;
+    }
+}

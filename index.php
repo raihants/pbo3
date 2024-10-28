@@ -1,4 +1,11 @@
-<!doctype html>
+<?php 
+  include ("config.php");
+  $db = new Database();
+  $data = $db->read();
+?>
+<link rel="stylesheet" href="style.css">
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -30,13 +37,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <?php 
-                      include('config.php');
-                      $no = 1;
-                      $query = mysqli_query($connection,"SELECT * FROM tbl_siswa");
-                      while($row = mysqli_fetch_array($query)){
-                  ?>
-
+                <?php $no = 1; while ($row = $data->fetch_assoc()) { ?>
                   <tr>
                       <td><?php echo $no++ ?></td>
                       <td><?php echo $row['nisn'] ?></td>
@@ -47,7 +48,6 @@
                         <a href="hapus-siswa.php?id=<?php echo $row['id_siswa'] ?>" class="btn btn-sm btn-danger">HAPUS</a>
                       </td>
                   </tr>
-
                 <?php } ?>
                 </tbody>
               </table>
@@ -55,14 +55,15 @@
           </div>
       </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script>
       $(document).ready( function () {
-          $('#myTable').DataTable();
-      } );
+          $('#myTable').DataTable({
+              "searching": true // Mengaktifkan fitur pencarian
+          });
+      });
     </script>
   </body>
 </html>
